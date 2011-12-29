@@ -1,0 +1,7 @@
+parameters:
+  controller_resolver.class: Aizatto\Bundle\ControllerResolverBundle\ControllerResolver
+
+services:
+#    aizatto_controller_resolver.example:
+#        class: %aizatto_controller_resolver.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
