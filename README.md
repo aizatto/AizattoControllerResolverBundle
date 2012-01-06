@@ -50,7 +50,7 @@ You have two options to install the source code.
 Add into your deps file
 
 <pre>
-[AsseticBundle]
+[AizattoControllerResolverBundle]
      git=http://github.com/aizatto/AizattoControllerResolverBundle.git
      target=/bundles/Aizatto/Bundle/ControllerResolverBundle
 </pre>
@@ -73,15 +73,17 @@ git submodule add \
 
 ### Install into AppKernel
 
-Edit your AppKernel (app/AppKernel.php), add the following line in the
-'dev', and 'test' environment only Bundles.
+Add "Aizatto\Bundle\ControllerResolverBundle\ControllerResolverBundle()"
+to the list of bundles.
 
 <pre>
-if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-  ...
-  $bundles[] = new Aizatto\Bundle\ControllerResolverBundle\ControllerResolverBundle();
-  ...
-}
+public function registerBundles()
+{
+    $bundles = array(
+        new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+        ...
+        new Aizatto\Bundle\ControllerResolverBundle\ControllerResolverBundle();
+    );
 </pre>
 
 ### Install into autoload
