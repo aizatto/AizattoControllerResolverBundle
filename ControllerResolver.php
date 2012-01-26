@@ -18,6 +18,12 @@ class ControllerResolver extends BaseControllerResolver {
     }
 
     list($bundle, $controller) = explode(':', $controller);
+    $service = $bundle;
+    if ($this->container->has($service)) {
+      $method = $controller;
+      return array($this->container->get($service), $method);
+    }
+
     $bundles = $this->container->get('kernel')->getBundle($bundle, false);
     $class = null;
     foreach ($bundles as $b) {
